@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -91,21 +92,21 @@ public class GameActivity extends AppCompatActivity {
             return;
         }
         Button btn = (Button) findViewById(v.getId());
-        TextView label = (TextView) findViewById(R.id.moveTextView);
         if(xMove)
         {
             btn.setText("X");
             table[x][y] = 2;
-            label.setText("O move");
+            // Toast.makeText(GameActivity.this, "O move", Toast.LENGTH_SHORT).show();
+            Snackbar.make(v, "O move", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             xMove = false;
         }
         else
         {
             btn.setText("O");
             table[x][y] = 1;
+            // Toast.makeText(GameActivity.this, "X move", Toast.LENGTH_SHORT).show();
+            Snackbar.make(v, "X move", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             xMove = true;
-
-            label.setText("X move");
         }
 
         checkResult();
