@@ -47,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about) {
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
-            return true;
+        switch (id) {
+            case R.id.action_about:
+                Intent intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_exit:
+                finishAffinity();
+                System.exit(0);
         }
 
         return super.onOptionsItemSelected(item);
@@ -291,5 +294,7 @@ public class MainActivity extends AppCompatActivity {
         
         Button button9 = (Button) findViewById(R.id.button9);
         button9.setText("");
+
+        Toast.makeText(MainActivity.this, "Let the game begin!", Toast.LENGTH_SHORT).show();
     }
 }
