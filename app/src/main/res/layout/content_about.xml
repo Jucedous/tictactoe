@@ -13,4 +13,70 @@
     tools:context="net.leonardofaria.tictactoe.AboutActivity"
     tools:showIn="@layout/activity_about">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/logo_side"
+        android:layout_height="@dimen/logo_side"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/tic_tac_toe" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView">
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+
+            <TextView
+                android:id="@+id/headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_headline"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_text"
+                android:layout_below="@+id/headline"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/history_headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_history_headline"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/about" />
+
+            <TextView
+                android:id="@+id/history"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_history"
+                android:layout_below="@+id/history_headline"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/github"
+                android:text="@string/github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/history"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:onClick="openRepo" />
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

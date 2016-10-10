@@ -12,6 +12,7 @@ import android.view.View;
 public class AboutActivity extends AppCompatActivity {
 
     private static String email = "leonardofaria@gmail.com";
+    private static String repoUrl = "https://github.com/leonardofaria/tictactoe";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +27,25 @@ public class AboutActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Send an email
-                String[] addresses = {email};
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Tic Tac Toe");
-                intent.putExtra(Intent.EXTRA_TEXT, "Please send your feedback about the game!");
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
+            // Send an email
+            String[] addresses = {email};
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Tic Tac Toe");
+            intent.putExtra(Intent.EXTRA_TEXT, "Please send your feedback about the game!");
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
             }
         });
+    }
+
+    protected void openRepo(View v) {
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(repoUrl));
+        if (webIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(webIntent);
+        }
     }
 
 }
