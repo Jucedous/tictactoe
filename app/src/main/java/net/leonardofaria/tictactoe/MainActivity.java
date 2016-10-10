@@ -17,9 +17,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button newGame;
-    private static String email = "leonardofaria@gmail.com";
-
     private int[][] table;
     private boolean xMove;
 
@@ -31,23 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Toast.makeText(MainActivity.this, "Let the game begin!", Toast.LENGTH_SHORT).show();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Send an email
-                String[] addresses = {email};
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Tic Tac Toe");
-                intent.putExtra(Intent.EXTRA_TEXT, "Please send your feedback about the game!");
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
-        });
 
         table = new int[3][3];
         xMove = true;
@@ -68,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
             return true;
         }
 

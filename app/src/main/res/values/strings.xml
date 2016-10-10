@@ -5,4 +5,7 @@
     <string name="title_activity_game">Tic Tac Toe</string>
     <string name="empty" />
     <string name="x_move" />
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
 </resources>
