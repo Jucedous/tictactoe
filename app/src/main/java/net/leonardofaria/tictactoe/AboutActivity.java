@@ -12,7 +12,7 @@ import android.view.View;
 public class AboutActivity extends AppCompatActivity {
 
     private static String email = "leonardofaria@gmail.com";
-    private static String repoUrl = "https://github.com/leonardofaria/tictactoe";
+    private static String repoUrl = "https://github.com/leonardofaria/tictactoe-android";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
