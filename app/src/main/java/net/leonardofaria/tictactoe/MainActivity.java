@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         switch (id) {
+            case R.id.action_new_game:
+                resetGame();
+                return true;
             case R.id.action_about:
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
@@ -119,13 +122,13 @@ public class MainActivity extends AppCompatActivity {
             btn.setText("X");
             table[x][y] = 2;
             // Toast.makeText(MainActivity.this, "O move", Toast.LENGTH_SHORT).show();
-            // Snackbar.make(v, "O move", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            Snackbar.make(v, "O move", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             xMove = false;
         } else {
             btn.setText("O");
             table[x][y] = 1;
             // Toast.makeText(MainActivity.this, "X move", Toast.LENGTH_SHORT).show();
-            // Snackbar.make(v, "X move", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            Snackbar.make(v, "X move", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             xMove = true;
         }
 
@@ -154,113 +157,114 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             dlgAlert.create().show();
-        }
-        //check horizontal lines
-        for (int i = 0; i != 3; ++i) {
-            if (table[i][0] == 1 && table[i][1] == 1 && table[i][2] == 1) {
+        } else {
+            //check horizontal lines
+            for (int i = 0; i != 3; ++i) {
+                if (table[i][0] == 1 && table[i][1] == 1 && table[i][2] == 1) {
+                    dlgAlert.setMessage("O Player wins!");
+                    dlgAlert.setTitle("Congratulations");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    resetGame();
+                                }
+                            });
+                    dlgAlert.create().show();
+
+                }
+                if (table[i][0] == 2 && table[i][1] == 2 && table[i][2] == 2) {
+                    dlgAlert.setMessage("X Player wins!");
+                    dlgAlert.setTitle("Congratulations");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    resetGame();
+                                }
+                            });
+                    dlgAlert.create().show();
+                }
+            }
+            //check vertical lines
+            for (int i = 0; i != 3; ++i) {
+                if (table[0][i] == 1 && table[1][i] == 1 && table[2][i] == 1) {
+                    dlgAlert.setMessage("O Player wins!");
+                    dlgAlert.setTitle("Congratulations");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    resetGame();
+                                }
+                            });
+                    dlgAlert.create().show();
+
+                }
+                if (table[0][i] == 2 && table[1][i] == 2 && table[2][i] == 2) {
+                    dlgAlert.setMessage("X Player wins!");
+                    dlgAlert.setTitle("Congratulations");
+                    dlgAlert.setCancelable(true);
+                    dlgAlert.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    resetGame();
+                                }
+                            });
+                    dlgAlert.create().show();
+
+                }
+            }
+            //check diagonals
+            if (table[0][0] == 1 && table[1][1] == 1 && table[2][2] == 1) {
                 dlgAlert.setMessage("O Player wins!");
                 dlgAlert.setTitle("Congratulations");
                 dlgAlert.setCancelable(true);
                 dlgAlert.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            resetGame();
-                        }
-                    });
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                resetGame();
+                            }
+                        });
                 dlgAlert.create().show();
 
             }
-            if (table[i][0] == 2 && table[i][1] == 2 && table[i][2] == 2) {
+            if (table[0][0] == 2 && table[1][1] == 2 && table[2][2] == 2) {
                 dlgAlert.setMessage("X Player wins!");
                 dlgAlert.setTitle("Congratulations");
                 dlgAlert.setCancelable(true);
                 dlgAlert.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            resetGame();
-                        }
-                    });
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                resetGame();
+                            }
+                        });
                 dlgAlert.create().show();
             }
-        }
-        //check vertical lines
-        for (int i = 0; i != 3; ++i) {
-            if (table[0][i] == 1 && table[1][i] == 1 && table[2][i] == 1) {
+            if (table[0][2] == 1 && table[1][1] == 1 && table[2][0] == 1) {
                 dlgAlert.setMessage("O Player wins!");
                 dlgAlert.setTitle("Congratulations");
                 dlgAlert.setCancelable(true);
                 dlgAlert.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            resetGame();
-                        }
-                    });
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                resetGame();
+                            }
+                        });
                 dlgAlert.create().show();
-
             }
-            if (table[0][i] == 2 && table[1][i] == 2 && table[2][i] == 2) {
+            if (table[0][2] == 2 && table[1][1] == 2 && table[2][0] == 2) {
                 dlgAlert.setMessage("X Player wins!");
                 dlgAlert.setTitle("Congratulations");
                 dlgAlert.setCancelable(true);
                 dlgAlert.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            resetGame();
-                        }
-                    });
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                resetGame();
+                            }
+                        });
                 dlgAlert.create().show();
-
             }
-        }
-        //check diagonals
-        if (table[0][0] == 1 && table[1][1] == 1 && table[2][2] == 1) {
-            dlgAlert.setMessage("O Player wins!");
-            dlgAlert.setTitle("Congratulations");
-            dlgAlert.setCancelable(true);
-            dlgAlert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        resetGame();
-                    }
-                });
-            dlgAlert.create().show();
-
-        }
-        if (table[0][0] == 2 && table[1][1] == 2 && table[2][2] == 2) {
-            dlgAlert.setMessage("X Player wins!");
-            dlgAlert.setTitle("Congratulations");
-            dlgAlert.setCancelable(true);
-            dlgAlert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        resetGame();
-                    }
-                });
-            dlgAlert.create().show();
-        }
-        if (table[0][2] == 1 && table[1][1] == 1 && table[2][0] == 1) {
-            dlgAlert.setMessage("O Player wins!");
-            dlgAlert.setTitle("Congratulations");
-            dlgAlert.setCancelable(true);
-            dlgAlert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        resetGame();
-                    }
-                });
-            dlgAlert.create().show();
-        }
-        if (table[0][2] == 2 && table[1][1] == 2 && table[2][0] == 2) {
-            dlgAlert.setMessage("X Player wins!");
-            dlgAlert.setTitle("Congratulations");
-            dlgAlert.setCancelable(true);
-            dlgAlert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        resetGame();
-                    }
-                });
-            dlgAlert.create().show();
         }
     }
 
