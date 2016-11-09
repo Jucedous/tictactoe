@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jogo da Velha</string>
+    <string name="about">Sobre</string>
+    <string name="about_headline">Sobre</string>
+    <string name="about_history_headline">História</string>
+    <string name="exit">Sair</string>
+    <string name="github">Código-fonte - Github</string>
+    <string name="new_game">Novo jogo</string>
+    <string name="title_activity_game">Jogo da Velha</string>
+    <string name="about_text">Esse app foi criado por Leonardo Faria para o curso de Android Development na Langara College.</string>
+    <string name="about_history">O jogo da velha é um jogo e passatempo popular. É um jogo de regras extremamente simples, que não traz grandes dificuldades para seus jogadores e é facilmente aprendido. Seu nome teria se originado na Inglaterra, quando nos finais da tarde, mulheres se reuniram para conversar e bordar. As mulheres idosas, por não terem mais condições de bordar em razão da fraqueza da visão, jogavam este jogo simples, que passou a ser conhecido como o da \"velha\". Porém, sua origem teria sido ainda mais antiga. Fala-se em tabuleiros escavados na rocha de templos do antigo Egito, que teriam sido feitos por escravos há 3.500 anos. De alguma forma, é um jogo \"aparentado\" dos \"Merels\" (ver Marel). \n\n Fonte e ícone: Wikipedia.</string>
+</resources>
